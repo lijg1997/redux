@@ -1,40 +1,38 @@
 import React, { Component } from 'react';
+import { INCREMENT, DECREMENT } from '../redux/action_type';
 
 export default class Count extends Component {
-  state = {
-    number: 0
-  };
-
   handleIncrease = () => {
     const { value } = this.refs.selectNumber;
-    const { number } = this.state;
-    this.setState({ number: number + value * 1 });
+    const { dispatch } = this.props.store;
+    dispatch({ type: INCREMENT, data: value * 1 });
   };
 
   handleDecrease = () => {
     const { value } = this.refs.selectNumber;
-    const { number } = this.state;
-    this.setState({ number: number - value * 1 });
+    const { dispatch } = this.props.store;
+    dispatch({ type: DECREMENT, data: value * 1 });
   };
 
   handleIncreaseOdd = () => {
     const { value } = this.refs.selectNumber;
-    const { number } = this.state;
-    if (number % 2 === 1) this.setState({ number: number + value * 1 });
+    const { getState, dispatch } = this.props.store;
+    if (getState() % 2 === 1) dispatch({ type: INCREMENT, data: value * 1 });
   };
 
   handleIncreaseAsync = () => {
     const { value } = this.refs.selectNumber;
-    const { number } = this.state;
+    const { dispatch } = this.props.store;
     setTimeout(() => {
-      this.setState({ number: number + value * 1 });
+      dispatch({ type: INCREMENT, data: value * 1 });
     }, 1000);
   };
 
   render() {
+    const { getState } = this.props.store;
     return (
       <div>
-        <h2>数字为：{this.state.number}</h2>
+        <h2>数字为：{getState()}</h2>
         <select ref="selectNumber">
           <option value="1">1</option>
           <option value="2">2</option>
