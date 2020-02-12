@@ -12,8 +12,5 @@ import reducer from './reducers';
 //引入redux-thunk用于异步编程
 import thunk from 'redux-thunk';
 
-//调试redux代码
-import { composeWithDevTools } from 'redux-devtools-extension';
-
 //将store默认方式暴露出去
-export default createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+export default createStore(reducer, applyMiddleware(thunk));
