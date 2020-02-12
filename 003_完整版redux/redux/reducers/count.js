@@ -1,6 +1,6 @@
 import { INCREMENT, DECREMENT } from '../action_types';
 export default function(previousState = 10, action) {
-  // console.log(previousState, action);
+  console.log(previousState, action);
   //解构赋值action对象身上的两个属性
   const { type, data } = action;
   //定义一个变量，用来在后面接收对应type的data
