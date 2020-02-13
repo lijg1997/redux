@@ -44,18 +44,15 @@ export default class Count extends Component {
       //1. this.setState({ number: number + value * 1 });
       //2. this.props.store.dispatch({ type: INCREMENT, data: value * 1 });
       //3. this.props.store.dispatch(createIncrementAction(value * 1));
-      //4. this.props.increment(value * 1, 600);
+      this.props.increment(value * 1);
     }, 400);
-    this.props.incrementAsync(value * 1, 2000);
   };
 
   render() {
     console.log(this.props);
     return (
       <div>
-        <h2>
-          当前计数为：{this.props.number} 下面的人数为：{this.props.persons.length}
-        </h2>
+        <h2>当前计数为：{this.props.number}</h2>
         <select ref="selectNumber">
           <option value="1">1</option>
           <option value="2">2</option>

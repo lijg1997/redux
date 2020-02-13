@@ -4,15 +4,19 @@ export default class Person extends Component {
   handleAddPerson = () => {
     const name = this.refs.name.value;
     const age = this.refs.age.value;
+    if (!name.trim() || !age.trim()) {
+      return;
+    }
     this.props.addPerson({ name, age });
+    this.refs.name.value = '';
+    this.refs.age.value = '';
   };
 
   render() {
-    // console.log(this.props);
     return (
       <div>
         <h2>
-          总人数为：{this.props.personArr.length}，上方计数：{this.props.number}
+          总人数为：{this.props.persons.length} 上面的计数为：{this.props.number}
         </h2>
         <input ref="name" type="text" placeholder="请输入您的姓名" />
         &nbsp;
@@ -20,9 +24,9 @@ export default class Person extends Component {
         &nbsp;
         <button onClick={this.handleAddPerson}>提交</button>
         <ul>
-          {this.props.personArr.map((item, index) => (
+          {this.props.persons.map((person, index) => (
             <li key={index}>
-              姓名：{item.name} 年龄：{item.age}
+              姓名：{person.name} 年龄：{person.age}
             </li>
           ))}
         </ul>

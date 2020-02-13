@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import Count from './containers/count/count';
-import Person from './containers/person/person';
+import Count from './containers/count/count_container';
+import Person from './containers/person/person_container';
 
 export default class App extends Component {
   render() {
-    // console.log(this.props);
     return (
       <div>
         <Count />

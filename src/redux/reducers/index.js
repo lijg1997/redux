@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import count from './count';
-import person from './person';
+import countReducer from './count_reducer';
+import PersonReducer from './person_reducer';
 
 export default combineReducers({
-  number: count,
-  personArr: person
+  number: countReducer,
+  persons: PersonReducer
 });

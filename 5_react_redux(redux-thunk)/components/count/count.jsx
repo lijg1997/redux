@@ -53,9 +53,7 @@ export default class Count extends Component {
     console.log(this.props);
     return (
       <div>
-        <h2>
-          当前计数为：{this.props.number} 下面的人数为：{this.props.persons.length}
-        </h2>
+        <h2>当前计数为：{this.props.number}</h2>
         <select ref="selectNumber">
           <option value="1">1</option>
           <option value="2">2</option>
