@@ -16,7 +16,7 @@ export default class Person extends Component {
     return (
       <div>
         <h2>
-          当前总人数为：{this.props.persons.length} 上面计数为：{this.props.number}
+          总人数为：{this.props.persons.length} 上面的计数为：{this.props.number}
         </h2>
         <input ref="name" type="text" placeholder="请输入您的姓名" />
         &nbsp;

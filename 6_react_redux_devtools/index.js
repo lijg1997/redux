@@ -9,3 +9,8 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+// 2.3.redux使用
+// store.subscribe(() => {
+//   ReactDOM.render(<App store={store} />, document.getElementById('root'));
+// });

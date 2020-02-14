@@ -5,15 +5,15 @@ import {
   createDecrementAction,
   createIncrementAsyncAction
 } from '../../redux/action_creators/count_action_creator';
-
 export default connect(
-  store => ({
-    number: store.number,
-    persons: store.persons
-  }),
+  state => ({ number: state.number, persons: state.persons }),
   {
     increment: createIncrementAction,
     decrement: createDecrementAction,
     incrementAsync: createIncrementAsyncAction
   }
+  // dispatch => ({
+  //   increment: value => dispatch(createIncrementAction(value)),
+  //   decrement: value => dispatch(createDecrementAction(value))
+  // })
 )(Count);
